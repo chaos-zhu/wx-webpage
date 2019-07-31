@@ -33,6 +33,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     compress: true,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
+    disableHostCheck: true, //  解决穿透访问报错Invalid Host/Origin header
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay
       ? { warnings: false, errors: true }
