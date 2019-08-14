@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
-
+import axios from '@/utils/axios'
+import 'lib-flexible'
+import '@/assets/style/reset.less'
+import { XButton, Alert } from 'vux'
+Vue.component('x-button', XButton)
+Vue.component('alert', Alert)
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 
