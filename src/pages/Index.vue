@@ -39,21 +39,22 @@ export default {
 			}
 		},
 		mounted() {
-			if (!sessionStorage.getItem('show')) {
-				this.show = true
-				sessionStorage.setItem('show', true)
-			}
-
 			this.shareData()
-
 			// 如果存在code则保存到sessionStorage
-			try {
-				let href = location.href
-				let code = href.split('?')[1].split('&')[0].slice(5)
+			let href = location.href
+			let query = href.split('?')[1]
+			let urlSearch = new URLSearchParams(query)
+			console.log(urlSearch.has('code'))
+			if(urlSearch.has('code')){
+				let code = urlSearch.get('code')
+				console.log(code)
 				sessionStorage.setItem('code', code)
-			} catch (error) {
-				console.log('未授权', error)
+				if (!sessionStorage.getItem('show')) {
+					this.show = true
+					sessionStorage.setItem('show', true)
+				}
 			}
+				
 			// 判断用户有没有授权过，没有则请求授权
 			if(!sessionStorage.getItem('code')){
 				this.getUserInfo()

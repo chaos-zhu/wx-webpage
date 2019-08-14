@@ -3,7 +3,7 @@
 		<x-button :gradients="['#c46156', '#56b9c4']" @click.native="openMap">微信内置地图</x-button>
 		<x-button :gradients="['#c46156', '#56b9c4']" @click.native="getLocation">获取地理位置</x-button>
         <alert v-model="show" :title="'Tips'">
-            <br><br>该功能依赖腾讯地图提供的api接口定位，可能存在定位差异<br><hr><br>
+            <span style="color:red;"> <br><br>该功能依赖腾讯地图提供的api接口定位，可能存在定位差异<br><br><hr> </span> 
         </alert>
     </div>
 </template>

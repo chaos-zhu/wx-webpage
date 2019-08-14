@@ -23,7 +23,6 @@ export default {
             console.log(111)
             wx.stopRecord({
                 success: (res) => {
-                    console.log(111)
                     this.localId = res.localId
                 },
                 fail: (res) => {
