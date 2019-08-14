@@ -1,11 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import axios from '@/utils/axios'
-import Index from '@/pages/Index.vue'
-import GetUserInfo from '@/pages/GetUserInfo.vue'
-import ChooseImage from '@/pages/ChooseImage.vue'
-import Record from '@/pages/Record.vue'
-import GetLocation from '@/pages/GetLocation.vue'
+// import Index from '@/pages/Index.vue'
+// import GetUserInfo from '@/pages/GetUserInfo.vue'
+// import ChooseImage from '@/pages/ChooseImage.vue'
+// import Record from '@/pages/Record.vue'
+// import GetLocation from '@/pages/GetLocation.vue'
+
+const Index = () => import('@/pages/Index.vue')
+const GetUserInfo = () => import('@/pages/GetUserInfo.vue')
+const ChooseImage = () => import('@/pages/ChooseImage.vue')
+const Record = () => import('@/pages/Record.vue')
+const GetLocation = () => import('@/pages/GetLocation.vue')
 
 Vue.use(Router)
 
@@ -54,7 +60,7 @@ router.beforeEach(async(to, from, next) => {
     'openLocation',
     'getLocation',
   ]
-  let url = `/wx/sign` // 获取wx签名的接口
+  let url = `/sign` // 获取wx签名的接口
   await axios.get(url, { params:{ url: location.href.split('#')[0] } })
     .then(({data: { data }}) => {
       let {appId, timestamp, nonceStr, signature} = data

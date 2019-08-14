@@ -34,7 +34,7 @@ export default {
     mounted() {
         this.code = sessionStorage.getItem('code')
         console.log(this.code)
-        let url = `/wx/getUserInfo?code=${this.code}`
+        let url = `/getUserInfo?code=${this.code}`
         this.axios.get(url)
             .then(({data}) => {
                 this.userInfo = data
