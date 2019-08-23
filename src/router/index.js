@@ -60,7 +60,7 @@ router.beforeEach(async(to, from, next) => {
     'openLocation',
     'getLocation',
   ]
-  let url = `/sign` // 获取wx签名的接口
+  let url = `/wxwebpage/sign` // 获取wx签名的接口
   await axios.get(url, { params:{ url: location.href.split('#')[0] } })
     .then(({data: { data }}) => {
       let {appId, timestamp, nonceStr, signature} = data
