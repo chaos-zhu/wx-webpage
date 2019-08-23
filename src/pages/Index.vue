@@ -5,13 +5,14 @@
 			主要技术如下：<br><br>
 			1、前端：vue-cli2、vue、vue-router、axios、vux.ui等<br><br>
 			2、后端：基于node.js的express框架开发的获取微信签名的接口<br><br><hr>
-			因订阅号权限问题，获取wx签名采用测试账号提供的appId<br><br>
-			<span style="color:red;">
-				此微信网页Demo已开启wx.config的debug模式选项<br><br>
-				因此测试JS-SDK过程中可能会出现操作提示弹窗<br><br>
-				另外98%的功能测试正常不排除有小Bug<br>
-			</span>
 		</alert>
+		<p class="tips1">
+			因个订阅号权限问题，获取wx签名采用测试账号提供的appId
+		</p>
+		<p class="tips2">
+			请先扫码关注页面底部二维码
+			才能正常使用该网页功能<br>
+		</p>
 		<box gap="10px 10px" class="box">
 			<x-button :gradients="['#6F1BFE', '#9479DF']" @click.native="$router.push('/getUserInfo')">获取用户信息</x-button>
 			<x-button style="margin-top:20px;" :gradients="['#1D62F0', '#19D5FD']" @click.native="$router.push('/chooseImage')">微信图片功能</x-button>
@@ -21,6 +22,9 @@
 			<x-button :disabled='false' @click.native="scanQRCode">调用扫一扫(无权限)</x-button>
 			<x-button :disabled='true'>已加载自定义分享给朋友/朋友圈</x-button>
 		</box>
+		<div style="text-align:center;">
+			<img src="@/assets/testgzh.png" alt="gg">
+		</div>
     </div>
 </template>
 
@@ -118,6 +122,16 @@ export default {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
+	}
+	p{
+		text-align: center;
+	}
+	.tips1{
+		font-size: 10px;
+		color: gray;
+	}
+	.tips2{
+		color: red;
 	}
 }
 </style>
